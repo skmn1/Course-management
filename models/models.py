@@ -52,6 +52,12 @@ class Classroom(models.Model):
     seats_nbr = fields.Integer(string='Seats number', Required = True)
     booked = fields.Boolean(string='Booked', Required = True)
 
+class Participant(models.Model):
+    _name = 'course.participant'
+
+    name = fields.Char(string='Name', Required = True)
+    registration_nbr = fields.Integer(string='Registration number', Required = True)
+
 # # @api.depends('value')
 # # def _value_pc(self):
 # #     self.value2 = float(self.value) / 100
