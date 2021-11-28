@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="course_list">
+      <field name="name">Course manager list</field>
+      <field name="model">course.course</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="category"/>
+          <field name="price"/>
+        </tree>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="course_action_window">
+      <field name="name">Course manager window</field>
+      <field name="res_model">course.course</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+
+    <!-- server action to the one above -->
+<!--     
+    <record model="ir.actions.server" id="course_action_server">
+      <field name="name">Course manager server</field>
+      <field name="model_id" ref="course_manager"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record> -->
+   
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Course manager" id="course_menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Course" id="course_manager_course" parent="course_menu_root"/>
+   
+    <!-- actions -->
+    
+    <menuitem name="List" id="course_manager_course_list" parent="course_manager_course"
+            action="course_action_window"/>
+    <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
+            action="course_manager.action_server"/> -->
+   
+  </data>
+</odoo>

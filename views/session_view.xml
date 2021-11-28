@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="session_list">
+      <field name="name">Session list</field>
+      <field name="model">course.session</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="status"/>
+          <field name="nbr_participant"/>
+          <field name="starting_date"/>
+          <field name="end_date"/>
+          <field name="lecturer_list"/>
+          <field name="course"/>
+        </tree>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="session_action_window">
+      <field name="name">Session manager window</field>
+      <field name="res_model">course.session</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+
+    <!-- server action to the one above -->
+<!--     
+    <record model="ir.actions.server" id="course_action_server">
+      <field name="name">Course manager server</field>
+      <field name="model_id" ref="course_manager"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record> -->
+   
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Course manager" id="course_menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Session" id="session_manager_session" parent="course_menu_root"/>
+   
+    <!-- actions -->
+    
+    <menuitem name="List" id="session_list_tab_item" parent="session_manager_session"
+            action="session_action_window"/>
+    <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
+            action="course_manager.action_server"/> -->
+   
+  </data>
+</odoo>
