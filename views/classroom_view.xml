@@ -10,6 +10,7 @@
           <field name="name"/>
           <field name="booked"/>
           <field name="seats_nbr"/>
+          <field name="session_list"/>
         </tree>
       </field>
     </record>

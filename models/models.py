@@ -43,6 +43,8 @@ class Session(models.Model):
     status = fields.Selection([('a', 'active'), ('u', 'unactive')], string='Status')
     lecturer_list = fields.Many2many('course.lecturer', string='Lecturers')
     course = fields.Many2one('course.course', string='Course')
+    participant_list = fields.Many2many('course.participant', string='Participants')
+    classroom_list = fields.Many2many('course.classroom', string='Classrooms')
 
 
 class Classroom(models.Model):
@@ -51,12 +53,14 @@ class Classroom(models.Model):
     name = fields.Char(string='Name', Required = True)
     seats_nbr = fields.Integer(string='Seats number', Required = True)
     booked = fields.Boolean(string='Booked', Required = True)
+    session_list = fields.Many2many('course.session', string='Sessions')
 
 class Participant(models.Model):
     _name = 'course.participant'
 
     name = fields.Char(string='Name', Required = True)
     registration_nbr = fields.Integer(string='Registration number', Required = True)
+    session_list = fields.Many2many('course.session', string='Sessions')
 
 # # @api.depends('value')
 # # def _value_pc(self):

@@ -9,6 +9,7 @@
         <tree>
           <field name="name"/>
           <field name="registration_nbr"/>
+          <field name="session_list"/>
         </tree>
       </field>
     </record>
