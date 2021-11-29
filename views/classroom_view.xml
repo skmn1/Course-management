@@ -10,11 +10,31 @@
           <field name="name"/>
           <field name="booked"/>
           <field name="seats_nbr"/>
-          <field name="session_list"/>
         </tree>
       </field>
     </record>
    
+    <!-- form view  -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">Classroom form</field>
+        <field name="model">course.classroom</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="booked"/>
+                        <field name="seats_nbr"/>
+                    </group>
+                    <notebook>
+                        <page name="classroomSessionsPage" string="Session List">
+                            <field name="session_list"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- actions opening views on models -->
     
@@ -47,12 +67,12 @@
    
     <!-- menu categories -->
     
-    <menuitem name="Classroom" id="classroom_manager_course" parent="course_menu_root"/>
+    <menuitem name="Classroom" id="classroom_manager_course" parent="course_menu_root" action="classroom_action_window"/>
    
     <!-- actions -->
     
-    <menuitem name="List" id="course_manager_classroom_list" parent="classroom_manager_course"
-            action="classroom_action_window"/>
+    <!-- <menuitem name="List" id="course_manager_classroom_list" parent="classroom_manager_course"
+            action="classroom_action_window"/> -->
     <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
             action="course_manager.action_server"/> -->
    

@@ -9,18 +9,62 @@
         <tree>
           <field name="name"/>
           <field name="registration_nbr"/>
-          <field name="session_list"/>
         </tree>
       </field>
     </record>
    
+   <!-- form view -->
+   <record id="model_name_view_form" model="ir.ui.view">
+     <field name="name">Participant form</field>
+     <field name="model">course.participant</field>
+     <field name="arch" type="xml">
+       <form string="">
+         <sheet>
+           <group>
+             <field name="name"/>
+           </group>
+           <group>
+             <field name="registration_nbr"/>
+           </group>
+           <notebook>
+             <page name="sessionsPage" string="Sessions List">
+                <field name="session_list"/>
+             </page>
+           </notebook>
+         </sheet>
+       </form>
+     </field>
+   </record>
+
+    <!-- kanban view -->
+    <record id="participant_view_kanban" model="ir.ui.view">
+      <field name="name">participant.view.kanban</field>
+      <field name="model">course.participant</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+								<div class="o_kanban_image">
+                  <img class="float-right o_ghost_avatar" src="/base/static/img/avatar.png" alt="Avatar"/>
+								</div>
+								<div class="oe_kanban_details">
+									<strong class="oe_partner_heading"><field name="name"/></strong><br/>
+                  <field name="registration_nbr" /><br/>
+								</div>
+							</div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="participant_action_window">
-      <field name="name">Registration manager window</field>
+      <field name="name">Participant manager window</field>
       <field name="res_model">course.participant</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
    
 
@@ -46,12 +90,12 @@
    
     <!-- menu categories -->
     
-    <menuitem name="Participant" id="participant_manager_course" parent="course_menu_root"/>
+    <menuitem name="Participant" id="participant_manager_course" parent="course_menu_root"  action="participant_action_window"/>
    
     <!-- actions -->
     
-    <menuitem name="List" id="course_manager_participant_list" parent="participant_manager_course"
-            action="participant_action_window"/>
+    <!-- <menuitem name="List" id="course_manager_participant_list" parent="participant_manager_course"
+            action="participant_action_window"/> -->
     <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
             action="course_manager.action_server"/> -->
    
