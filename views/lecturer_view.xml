@@ -12,14 +12,37 @@
         </tree>
       </field>
     </record>
-   
+
+    <!-- kanban view  -->
+
+     <record id="lecturer_view_kanban" model="ir.ui.view">
+      <field name="name">Lecturer kanban view</field>
+      <field name="model">course.lecturer</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+								<div class="o_kanban_image">
+                  <img class="float-right o_ghost_avatar" src="/base/static/img/avatar.png" alt="Avatar"/>
+								</div>
+								<div class="oe_kanban_details">
+									<strong class="oe_partner_heading"><field name="name"/></strong><br/>
+                  <field name="degree" /><br/>
+								</div>
+							</div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="lecturer_action_window">
       <field name="name">Lecturer manager window</field>
       <field name="res_model">course.lecturer</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
    
 
@@ -45,12 +68,12 @@
    
     <!-- menu categories -->
     
-    <menuitem name="Lecturer" id="course_manager_lecturer" parent="course_menu_root"/>
+    <menuitem name="Lecturer" id="course_manager_lecturer" parent="course_menu_root"  action="lecturer_action_window"/>
    
     <!-- actions -->
-    
+<!--     
     <menuitem name="List" id="lecturer_list_tab_item" parent="course_manager_lecturer"
-            action="lecturer_action_window"/>
+            action="lecturer_action_window" /> -->
     <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
             action="course_manager.action_server"/> -->
    

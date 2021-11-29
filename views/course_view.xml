@@ -8,13 +8,33 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <!-- <field name="category"/> -->
+          <field name="category"/>
           <field name="price"/>
         </tree>
       </field>
     </record>
    
-
+    <!-- form view -->
+    <record id="course_view_form" model="ir.ui.view">
+      <field name="name">Course form</field>
+      <field name="model">course.course</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="category"/>
+              <field name="price"/>
+            </group>
+            <notebook>
+              <page name="courseSessionsPage" string="Sessions List">
+                <field name="session_list" />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="course_action_window">
@@ -46,12 +66,12 @@
    
     <!-- menu categories -->
     
-    <menuitem name="Course" id="course_manager_course" parent="course_menu_root"/>
+    <menuitem name="Course" id="course_manager_course" parent="course_menu_root" action="course_action_window"/>
    
     <!-- actions -->
-    
+<!--     
     <menuitem name="List" id="course_manager_course_list" parent="course_manager_course"
-            action="course_action_window"/>
+            action="course_action_window"/> -->
     <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
             action="course_manager.action_server"/> -->
    

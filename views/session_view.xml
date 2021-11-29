@@ -13,53 +13,91 @@
           <field name="nbr_participant"/>
           <field name="starting_date"/>
           <field name="end_date"/>
-          <field name="lecturer_list"/>
-          <field name="participant_list"/>
-          <field name="classroom_list"/>
         </tree>
       </field>
     </record>
    
+    <!-- from view -->
+
+    <record id="session_view_form" model="ir.ui.view">
+      <field name="name">Session form view</field>
+      <field name="model">course.session</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="course"/>
+                <field name="status"/>
+                <field name="nbr_participant"/>
+              </group>
+              <group>
+                <field name="starting_date"/>
+                <field name="end_date"/>
+              </group>
+            </group>
+            <notebook>
+              <page name="lecturersPage" string="Lecturers List">
+                <field name="lecturer_list" />
+              </page>
+              <page name="participantsPage" string="Participants List">
+                <field name="participant_list" />
+              </page>
+              <page name="classroomsPage" string="Classrooms List">
+                <field name="classroom_list" />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- kanban view -->
+    <record id="session_view_kanban" model="ir.ui.view">
+      <field name="name">Session kanban view</field>
+      <field name="model">course.session</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+								<div class="o_kanban_image">
+                    <img class="rounded-circle oe_topbar_avatar" t-att-src="_s + '/web/static/src/img/user_menu_avatar.png'" alt="User"/>
+								</div>
+								<div class="oe_kanban_details">
+									<strong class="oe_partner_heading"><field name="name"/></strong><br/>
+                  <field name="course" /><br/>
+                  <field name="status" /><br/>
+                  <field name="nbr_participant" />
+								</div>
+							</div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="session_action_window">
       <field name="name">Session manager window</field>
       <field name="res_model">course.session</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
    
-
-    <!-- server action to the one above -->
-<!--     
-    <record model="ir.actions.server" id="course_action_server">
-      <field name="name">Course manager server</field>
-      <field name="model_id" ref="course_manager"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record> -->
-   
-
     <!-- Top menu item -->
     
     <menuitem name="Course manager" id="course_menu_root"/>
    
     <!-- menu categories -->
     
-    <menuitem name="Session" id="session_manager_session" parent="course_menu_root"/>
+    <menuitem name="Session" id="session_manager_session" parent="course_menu_root"  action="session_action_window"/>
    
     <!-- actions -->
     
-    <menuitem name="List" id="session_list_tab_item" parent="session_manager_session"
-            action="session_action_window"/>
-    <!-- <menuitem name="Server to list" id="course_manager" parent="course_manager.menu_2"
-            action="course_manager.action_server"/> -->
+    <!-- <menuitem name="List" id="session_list_tab_item" parent="session_manager_session"
+            action="session_action_window"/> -->
    
   </data>
 </odoo>
