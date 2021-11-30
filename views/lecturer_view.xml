@@ -37,12 +37,23 @@
       </field>
     </record>
 
+    <!-- search view -->
+    <record id="lecturer_view_search" model="ir.ui.view">
+      <field name="name">Lecturer search</field>
+      <field name="model">course.lecturer</field>
+      <field name="arch" type="xml">
+        <search string="">
+          <field name="degree" />
+        </search>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="lecturer_action_window">
       <field name="name">Lecturer manager window</field>
       <field name="res_model">course.lecturer</field>
-      <field name="view_mode">tree,form,kanban</field>
+      <field name="view_mode">kanban,tree,form,search</field>
     </record>
    
 
