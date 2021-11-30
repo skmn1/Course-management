@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class course_management_system(models.Model):
     _name = 'course_management_system.course_management_system'
@@ -46,12 +47,17 @@ class Session(models.Model):
     participant_list = fields.Many2many('course.participant', string='Participants')
     classroom_list = fields.Many2many('course.classroom', string='Classrooms')
 
+    ###  constrains ###
+    @api.constrains('starting_date','end_date')
+    def check_dates(self) :
+        if self.end_date < self.starting_date :
+            raise ValidationError('End date must be greater than starting date')
 
 class Classroom(models.Model):
     _name = 'course.classroom'
     
     name = fields.Char(string='Name', Required = True)
-    seats_nbr = fields.Integer(string='Seats number', Required = True)
+    seats_nbr = fields.Integer(string='Seats number', required = True, default= 25 )
     booked = fields.Boolean(string='Booked', Required = True)
     session_list = fields.Many2many('course.session', string='Sessions')
 
