@@ -9,8 +9,8 @@
         This module allows the management of the course centers, schools, etc.
     """,
 
-    'author': "SoulSoft",
-    'website': "http://www.soulsoft.com",
+    'author': "Soulimane KAMNI",
+    'website': "https://www.linkedin.com/in/soulimane-kamni/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
