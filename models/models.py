@@ -21,7 +21,7 @@ class Course(models.Model):
     _name = 'course.course'
 
 
-    name = fields.Char(string='Name', Required = True)
+    name = fields.Char(string='Name', required = True)
     category = fields.Char(string='category')
     price = fields.Float(string='Price', digits=(12, 2))
     description = fields.Text()
@@ -37,7 +37,7 @@ class Lecturer(models.Model):
 class Session(models.Model):
     _name = 'course.session'
 
-    name = fields.Char(string='Name', Required = True)
+    name = fields.Char(string='Name', required = True)
     nbr_participant = fields.Integer(string='Participants number')
     starting_date = fields.Date(string='Starting date')
     end_date = fields.Date(string='End date')
@@ -56,16 +56,16 @@ class Session(models.Model):
 class Classroom(models.Model):
     _name = 'course.classroom'
     
-    name = fields.Char(string='Name', Required = True)
+    name = fields.Char(string='Name', required = True)
     seats_nbr = fields.Integer(string='Seats number', required = True, default= 25 )
-    booked = fields.Boolean(string='Booked', Required = True)
+    booked = fields.Boolean(string='Booked', required = True)
     session_list = fields.Many2many('course.session', string='Sessions')
 
 class Participant(models.Model):
     _name = 'course.participant'
 
-    name = fields.Char(string='Name', Required = True)
-    registration_nbr = fields.Integer(string='Registration number', Required = True)
+    name = fields.Char(string='Name', required = True)
+    registration_nbr = fields.Integer(string='Registration number', required = True)
     session_list = fields.Many2many('course.session', string='Sessions')
 
 # # @api.depends('value')
