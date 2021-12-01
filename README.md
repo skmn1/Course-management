@@ -1,1 +1,1 @@
-course_management_system
+Odoo fully-feldged application that allows training centers to manage their courses.
