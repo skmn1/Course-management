@@ -32,10 +32,10 @@ class Lecturer(models.Model):
     _name = 'course.lecturer'
 
     name = fields.Char(string='Name', required = True)
-    identification_nbr = fields.Integer(string='Identification number', required = True)
+    id_number = fields.Integer(string='Identification number', required = True)
     degree = fields.Char(string='Degree')
 
-    # _sql_constraints = [('identification_nbr_unique', 'unique(indetification_nbr)', 'Indetification number must be unique')]
+    _sql_constraints = [('id_number_unique', 'unique(id_number)', 'Indetification number must be unique')]
 
 class Session(models.Model):
     _name = 'course.session'
