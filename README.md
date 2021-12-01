@@ -1,1 +1,1 @@
-Odoo fully-feldged application that allows training centers to manage their courses.
+Odoo fully-fledged application that allows training centers to manage their courses.
