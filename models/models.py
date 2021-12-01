@@ -32,7 +32,10 @@ class Lecturer(models.Model):
     _name = 'course.lecturer'
 
     name = fields.Char(string='Name', required = True)
+    id_number = fields.Integer(string='Identification number', required = True)
     degree = fields.Char(string='Degree')
+
+    _sql_constraints = [('id_number_unique', 'unique(id_number)', 'Indetification number must be unique')]
 
 class Session(models.Model):
     _name = 'course.session'
@@ -68,6 +71,7 @@ class Participant(models.Model):
     registration_nbr = fields.Integer(string='Registration number', required = True)
     session_list = fields.Many2many('course.session', string='Sessions')
 
+    _sql_constraints = [('registration_nbr_unique', 'unique(registration_nbr)', 'Registration number must be unique')]
 # # @api.depends('value')
 # # def _value_pc(self):
 # #     self.value2 = float(self.value) / 100
