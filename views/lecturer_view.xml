@@ -49,6 +49,24 @@
         </search>
       </field>
     </record>
+    
+    <!-- form view  -->
+
+    <record id="course_view_form" model="ir.ui.view">
+      <field name="name">Lecturer form view</field>
+      <field name="model">course.lecturer</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+                <field name="name" />
+                <field name="id_number" />
+                <field name="degree" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     
