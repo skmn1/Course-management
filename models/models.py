@@ -32,6 +32,7 @@ class Lecturer(models.Model):
     _name = 'course.lecturer'
 
     name = fields.Char(string='Name', required = True)
+    identification_nbr = fields.Integer(string='Identification number', required = True)
     degree = fields.Char(string='Degree')
 
 class Session(models.Model):

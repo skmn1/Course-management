@@ -8,6 +8,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="identification_nbr"/>
           <field name="degree"/>
         </tree>
       </field>
@@ -28,6 +29,7 @@
 								</div>
 								<div class="oe_kanban_details">
 									<strong class="oe_partner_heading"><field name="name"/></strong><br/>
+                  <field name="identification_nbr" /><br/>
                   <field name="degree" /><br/>
 								</div>
 							</div>
