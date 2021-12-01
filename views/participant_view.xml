@@ -14,7 +14,7 @@
     </record>
    
    <!-- form view -->
-   <record id="model_name_view_form" model="ir.ui.view">
+   <record id="participant_view_form" model="ir.ui.view">
      <field name="name">Participant form</field>
      <field name="model">course.participant</field>
      <field name="arch" type="xml">
@@ -22,12 +22,10 @@
          <sheet>
            <group>
              <field name="name"/>
-           </group>
-           <group>
              <field name="registration_nbr"/>
            </group>
            <notebook>
-             <page name="sessionsPage" string="Sessions List">
+             <page name="participantSessionsPage" string="Sessions List">
                 <field name="session_list"/>
              </page>
            </notebook>
