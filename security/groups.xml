@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	 <data>
+		<record id="group_app_manager" model="res.groups">
+			<field name="name">App Manager</field>
+		</record>	
+
+		<record id="group_assistant" model="res.groups">
+			<field name="name">Assistant</field>
+		</record>	
+
+	 </data>	
+</odoo>

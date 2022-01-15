@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_course_management_system_course_management_system,course_management_system.course_management_system,model_course_management_system_course_management_system,,1,0,0,0
+access_participant_manager,access.participant.manager,course_management_system.model_course_participant,group_app_manager,1,1,1,0
+access_participant_assistant,access.participant.assistant,course_management_system.model_course_participant,group_assistant,1,0,0,0
