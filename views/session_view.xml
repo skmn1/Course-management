@@ -35,12 +35,13 @@
               <group>
                 <field name="starting_date"/>
                 <field name="end_date"/>
+                <field name="lecturer_list" widget="many2many_tags"/>
               </group>
             </group>
             <notebook>
-              <page name="lecturersPage" string="Lecturers List">
+              <!-- <page name="lecturersPage" string="Lecturers List">
                 <field name="lecturer_list" />
-              </page>
+              </page> -->
               <page name="participantsPage" string="Participants List">
                 <field name="participant_list" />
               </page>

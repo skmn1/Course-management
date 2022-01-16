@@ -1,3 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_participant_manager,access.participant.manager,course_management_system.model_course_participant,group_app_manager,1,1,1,0
-access_participant_assistant,access.participant.assistant,course_management_system.model_course_participant,group_assistant,1,0,0,0
+access_classroom_manager,access.classroom.manager,course_management_system.model_course_classroom,group_app_manager,1,1,1,0
+access_session_manager,access.session.manager,course_management_system.model_course_session,group_app_manager,1,1,1,0
+access_course_manager,access.course.manager,course_management_system.model_course_course,group_app_manager,1,1,1,0
+access_lecturer_manager,lecturer.participant.manager,course_management_system.model_course_lecturer,group_app_manager,1,1,1,0
+
+
+access_course_assistant,access.course.assistant,course_management_system.model_course_course,group_assistant,1,0,0,0
+access_session_assistant,access.session.assistant,course_management_system.model_course_session,group_assistant,1,0,0,0
+access_participant_assistant,access.participant.assistant,course_management_system.model_course_participant,group_assistant,1,1,1,0
+access_lecturer_assistant,lecturer.participant.assistant,course_management_system.model_course_lecturer,group_assistant,1,1,1,0
+access_classroom_assistant,access.classroom.assistant,course_management_system.model_course_classroom,group_assistant,1,1,1,0
