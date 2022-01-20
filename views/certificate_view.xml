@@ -7,8 +7,28 @@
             <field name="model">course.certificate</field>
             <field name="arch" type="xml">
                 <tree string="">
+                    <field name="name" />
                     <field name="date" />
+                    <field name="participant" />
                 </tree>
+            </field>
+        </record>
+
+        <record id="certificate_view_form" model="ir.ui.view">
+            <field name="name">certificate.view.form</field>
+            <field name="model">course.certificate</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="participant" />
+                            <field name="date" />
+                            <field name="description" />
+                            <field name="course" />
+                        </group>
+                    </sheet>
+                </form>
             </field>
         </record>
 

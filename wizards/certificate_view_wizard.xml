@@ -3,9 +3,9 @@
 	 <data>
 	  
 	  <!-- form views -->
-		<record model="ir.ui.view" id="attestation_form_view">
-			<field name="name">certificate.form</field>
-			<field name="model">course.certificate</field>
+		<record model="ir.ui.view" id="certificatewizard_form_view">
+			<field name="name">certificatewizard.form</field>
+			<field name="model">course.certificatewizard</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Create certificate">
@@ -28,9 +28,9 @@
 		</record>
 
 		<!-- window action -->
-		<record model="ir.actions.act_window" id="wizard_attestation_action">
-			<field name="name">Certificate.action</field>
-			<field name="res_model">course.certificate</field>
+		<record model="ir.actions.act_window" id="certificate_wizard_action">
+			<field name="name">certificatewizard.action</field>
+			<field name="res_model">course.certificatewizard</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form</field>
 			<field name="target">new</field>

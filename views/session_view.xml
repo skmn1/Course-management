@@ -23,11 +23,11 @@
       <field name="name">Session form view</field>
       <field name="model">course.session</field>
       <field name="arch" type="xml">
-        <form string="">
+        <form string="Session form">
           <header>
-            <button string="Create certificate" name="%(wizard_attestation_action)d" type="action" class="oe_highlight"/>
+            <button string="Create certificate" name="%(certificate_wizard_action)d" type="action" class="oe_highlight"/>
           </header>
-          <sheet>
+          <sheet> 
             <group>
               <group>
                 <field name="name"/>

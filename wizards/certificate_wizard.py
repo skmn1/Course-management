@@ -2,7 +2,7 @@ from odoo import api, models, fields
 from datetime import datetime
 
 class CertificateWizard(models.TransientModel):
-    _name = 'course.certificate'
+    _name = 'course.certificatewizard'
 
     
 
@@ -18,10 +18,11 @@ class CertificateWizard(models.TransientModel):
         session = self.env['course.session'].browse(session_id)
         for participant in self.participant_ids:
             self.env['course.certificate'].create({
+                'name' : participant.name.replace(" ","_") + "_" + session.course.name,
                 'date' : self.date,
                 'description' : self.description,
-                'participant_id' : participant.id,
-                'course_id' : session.course.id,
+                'participant' : participant.id,
+                'course' : session.course.id,
                 })
 
     date = fields.Date()
