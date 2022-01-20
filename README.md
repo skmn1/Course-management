@@ -1,5 +1,5 @@
 ## Introduction
-Odoo fully fledged application that allows training centers to manage their courses. The module is still under development. However, the current version contains almost every needed concept. I invite you to download the module and test it. I will be glad to receive your feedback.
+Course management is an Odoo fully fledged application that allows training centers to manage their courses. The module is still under development. However, the current version contains almost every needed functionality. This module is compatible with Odoo 12. Therefore, I invite you to download the module and test it. I will be glad to receive your feedback.
 
 ![app](https://github.com/skmn1/Course-management/blob/master/static/description/app.PNG)<be/>
 
@@ -8,6 +8,7 @@ Odoo fully fledged application that allows training centers to manage their cour
 
 ***
 ## Metamodel
+The application is composed of 6 inter-connected classes namely : course, session, lecturer, participant, classroom, and finally the ceritificate. Below is the metamodel that show shows the classes, their attribues and the different relationships.
 
 ![meta-model](https://github.com/skmn1/Course-management/blob/master/static/description/course-manager-model.PNG)<br/>
 
