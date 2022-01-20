@@ -32,6 +32,9 @@
         'views/lecturer_view.xml',
         'views/session_view.xml',
         'views/classroom_view.xml',
+        'views/certificate_view.xml',
+        'wizards/certificate_view_wizard.xml',
+        'report/certificate_report.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

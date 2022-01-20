@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	 <!-- <data> -->
+
+
+		<report
+			 id="certificate_report"
+			 string="Certificate"
+			 model="course.certificate"
+			 report_type="qweb-pdf"
+			 name="course_management_system.certificate_report_template"
+             file="course_management_system.certificate_report"/>
+
+		<record id="certificate_paperformat" model="report.paperformat">
+			<field name="name">Certificate Format</field>
+			<field name="default" eval="True"/>
+			<field name="format">custom</field>
+			<field name="page_height">210</field>
+			<field name="page_width">270</field>
+			<field name="orientation">Portrait</field>
+			<field name="margin_top">60</field>
+			<field name="margin_bottom">30</field>
+			<field name="margin_left">30</field>
+			<field name="margin_right">30</field>
+			<field name="header_line" eval="False"/>
+			<field name="header_spacing">20</field>
+			<field name="dpi">90</field>
+		</record>
+		<!-- <record id="course_management_system.certificate_report" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="course_management_system.certificate_report_template" />
+		</record> -->
+
+
+    
+
+		<template id="certificate_report_template">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<div class="page">
+
+						<h2 align="center">
+							Certificate of paticipation in <strong><span t-field="doc.course.name"/></strong>
+						</h2>
+						<br/>
+						<h1 align="center">
+							<span t-field="doc.participant_ids.name"/>
+						</h1>
+						<br/>
+						<h3 align="center">
+							<span t-field="doc.description"/> 
+						</h3>
+						<br/><br/>
+						<p align="right">
+							Delivrance date: <strong><span t-field="doc.date" /></strong> 
+						</p>
+
+					</div>
+				</t>
+			</t>
+		</template>
+
+	<!-- </data> -->
+</odoo>
+

@@ -75,3 +75,12 @@ class Participant(models.Model):
 # # @api.depends('value')
 # # def _value_pc(self):
 # #     self.value2 = float(self.value) / 100
+
+# class Certificate(models.Model):
+#     _name = 'course.certificate'
+#     _rec_name = 'participant'
+
+#     date = fields.Date()
+#     description = fields.Text()
+#     participant = fields.Many2one('course.participant', string='participant_id')
+#     course = fields.Many2one('course.course', string='course_id')    

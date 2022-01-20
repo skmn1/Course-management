@@ -24,6 +24,9 @@
       <field name="model">course.session</field>
       <field name="arch" type="xml">
         <form string="">
+          <header>
+            <button string="Create certificate" name="%(wizard_attestation_action)d" type="action" class="oe_highlight"/>
+          </header>
           <sheet>
             <group>
               <group>

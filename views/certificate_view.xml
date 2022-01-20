@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="certificate_view_tree" model="ir.ui.view">
+            <field name="name">certificate_view_tree</field>
+            <field name="model">course.certificate</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="date" />
+                </tree>
+            </field>
+        </record>
+
+
+	 	<!-- window action -->
+		<record model="ir.actions.act_window" id="certificate_action">
+			<field name="name">Certificate</field>
+			<field name="res_model">course.certificate</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				 <p class="oe_view_nocontent_create">
+					Create your first certificate
+				 </p>
+			</field>
+		</record>
+
+		<!-- menus items -->
+		<menuitem id="certificate_menu" name="Certificate" parent="course_menu_root" action="certificate_action"/>
+
+    </data>
+</odoo>

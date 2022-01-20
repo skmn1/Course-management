@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	 <data>
+	  
+	  <!-- form views -->
+		<record model="ir.ui.view" id="attestation_form_view">
+			<field name="name">certificate.form</field>
+			<field name="model">course.certificate</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Create certificate">
+						<group>
+							<group>
+								<field name="date"/>
+								<field name="description"/>
+							</group>
+							<group string="Participants">
+								<field name="participant_ids" nolabel="1"/>
+							</group>
+						</group>
+
+						<footer>
+							<button name="validate" string="create" type="object" class="oe_highlight"/>
+							<button string="cancel" class="oe_link" special="cancel"/>
+						</footer>
+				</form>
+			</field>
+		</record>
+
+		<!-- window action -->
+		<record model="ir.actions.act_window" id="wizard_attestation_action">
+			<field name="name">Certificate.action</field>
+			<field name="res_model">course.certificate</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+			<field name="help" type="html">
+				 <p class="oe_view_nocontent_create">
+					Create Certificates
+				 </p>
+			</field>
+		</record>
+	</data>
+</odoo>
