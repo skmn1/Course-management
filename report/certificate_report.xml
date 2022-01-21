@@ -9,6 +9,7 @@
 			 model="course.certificate"
 			 report_type="qweb-pdf"
 			 name="course_management_system.certificate_report_template"
+             print_report_name = "(object.name+'.pdf')"
              file="course_management_system.certificate_report"/>
 
 		<record id="certificate_paperformat" model="report.paperformat">
