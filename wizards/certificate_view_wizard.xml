@@ -9,20 +9,18 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Create certificate">
+					<sheet>
 						<group>
-							<group>
-								<field name="date"/>
-								<field name="description"/>
-							</group>
-							<group string="Participants">
-								<field name="participant_ids" nolabel="1"/>
-							</group>
+							<field name="participant_ids" widget="many2many_tags"/>
+							<field name="date"/>
+							<field name="description"/>
 						</group>
+					</sheet>
 
-						<footer>
-							<button name="validate" string="create" type="object" class="oe_highlight"/>
-							<button string="cancel" class="oe_link" special="cancel"/>
-						</footer>
+					<footer>
+						<button name="validate" string="create" type="object" class="oe_highlight"/>
+						<button string="cancel" class="oe_link" special="cancel"/>
+					</footer>
 				</form>
 			</field>
 		</record>

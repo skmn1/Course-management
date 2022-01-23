@@ -83,5 +83,5 @@ class Certificate(models.Model):
     name = fields.Char(string='Certificate')
     date = fields.Date()
     description = fields.Text()
-    participant = fields.Many2one('course.participant', string='participant_id')
-    course = fields.Many2one('course.course', string='course_id')    
+    participant = fields.Many2one('course.participant', string='participant')
+    course = fields.Many2one('course.course', string='course')    
