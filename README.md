@@ -9,6 +9,7 @@ Course management is an Odoo fully fledged application that allows training cent
 ***
 ## Metamodel
 The application is composed of 6 inter-connected classes namely : course, session, lecturer, participant, classroom, and finally the ceritificate. Below is the metamodel that show shows the classes, their attribues and the different relationships.
+
 P.S. The figure below needs to be updated.
 ![meta-model](https://github.com/skmn1/Course-management/blob/master/static/description/course-manager-model.PNG)<br/>
 
