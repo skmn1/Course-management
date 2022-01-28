@@ -63,10 +63,11 @@ class Classroom(models.Model):
 
 class Participant(models.Model):
     _name = 'course.participant'
+    _inherits = {'res.partner':'partner_id'}
 
-    name = fields.Char(string='Name', required = True)
+    partner_id = fields.Many2one('res.partner', string='Related partner')
     registration_nbr = fields.Integer(string='Registration number', required = True)
-    session_list = fields.Many2many('course.session', string='Sessions')
+    session_ids = fields.Many2many('course.session', string='Sessions')
 
     _sql_constraints = [('registration_nbr_unique', 'unique(registration_nbr)', 'Registration number must be unique')]
 # # @api.depends('value')
