@@ -4,9 +4,11 @@
 		<record id="group_app_manager" model="res.groups">
 			<field name="name">App Manager</field>
 		</record>	
-
 		<record id="group_assistant" model="res.groups">
 			<field name="name">Assistant</field>
+		</record>	
+		<record id="group_lecturer" model="res.groups">
+			<field name="name">Lecturer</field>
 		</record>	
 
 	 </data>	

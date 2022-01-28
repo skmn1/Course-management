@@ -25,7 +25,7 @@
       <field name="arch" type="xml">
         <form string="Session form">
           <header>
-            <button string="Create certificate" name="%(certificate_wizard_action)d" type="action" class="oe_highlight"/>
+             <button string="Create certificate" name="%(open_certificate_wizard_action)d" type="action" class="oe_highlight"/>
           </header>
           <sheet> 
             <group>
@@ -38,7 +38,7 @@
               <group>
                 <field name="starting_date"/>
                 <field name="end_date"/>
-                <field name="lecturer_list" widget="many2many_tags"/>
+                <field name="lecturer_ids" widget="many2many_tags"/>
               </group>
             </group>
             <notebook>
@@ -52,7 +52,7 @@
                 <field name="classroom_list" />
               </page>
             </notebook>
-          </sheet>
+          </sheet>  
         </form>
       </field>
     </record>

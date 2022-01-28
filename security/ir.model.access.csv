@@ -5,9 +5,14 @@ access_session_manager,access.session.manager,course_management_system.model_cou
 access_course_manager,access.course.manager,course_management_system.model_course_course,group_app_manager,1,1,1,0
 access_lecturer_manager,lecturer.participant.manager,course_management_system.model_course_lecturer,group_app_manager,1,1,1,0
 
-
 access_course_assistant,access.course.assistant,course_management_system.model_course_course,group_assistant,1,0,0,0
 access_session_assistant,access.session.assistant,course_management_system.model_course_session,group_assistant,1,0,0,0
 access_participant_assistant,access.participant.assistant,course_management_system.model_course_participant,group_assistant,1,1,1,0
 access_lecturer_assistant,lecturer.participant.assistant,course_management_system.model_course_lecturer,group_assistant,1,1,1,0
 access_classroom_assistant,access.classroom.assistant,course_management_system.model_course_classroom,group_assistant,1,1,1,0
+
+access_course_lecturer,access.course.lecturer,course_management_system.model_course_course,group_lecturer,1,1,1,0
+access_session_lecturer,access.session.lecturer,course_management_system.model_course_session,group_lecturer,1,1,1,0
+access_participant_lecturer,access.participant.lecturer,course_management_system.model_course_participant,group_lecturer,1,1,0,0
+access_lecturer_lecturer,lecturer.participant.lecturer,course_management_system.model_course_lecturer,group_lecturer,1,1,1,0
+access_classroom_lecturer,access.classroom.lecturer,course_management_system.model_course_classroom,group_lecturer,0,0,0,0

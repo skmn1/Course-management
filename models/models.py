@@ -3,20 +3,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class course_management_system(models.Model):
-    _name = 'course_management_system.course_management_system'
-
-    name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text()
-
-    @api.depends('value')
-    def _value_pc(self):
-        self.value2 = float(self.value) / 100
-
-
-
 class Course(models.Model):
     _name = 'course.course'
 
@@ -28,14 +14,15 @@ class Course(models.Model):
     session_list = fields.One2many('course.session','course', string='Sessions')
 
 
-class Lecturer(models.Model):
-    _name = 'course.lecturer'
+# class Lecturer(models.Model):
+#     _name = 'course.lecturer'
+#     _inherit = 'res.users'
 
-    name = fields.Char(string='Name', required = True)
-    id_number = fields.Integer(string='Identification number', required = True)
-    degree = fields.Char(string='Degree')
+#     name = fields.Char(string='Name', required = True)
+#     id_number = fields.Integer(string='Identification number', required = True)
+#     degree = fields.Char(string='Degree')
 
-    _sql_constraints = [('id_number_unique', 'unique(id_number)', 'Indetification number must be unique')]
+#     _sql_constraints = [('id_number_unique', 'unique(id_number)', 'Indetification number must be unique')]
 
 class Session(models.Model):
     _name = 'course.session'
@@ -45,7 +32,7 @@ class Session(models.Model):
     starting_date = fields.Date(string='Starting date')
     end_date = fields.Date(string='End date')
     status = fields.Selection([('a', 'active'), ('u', 'unactive')], string='Status')
-    lecturer_list = fields.Many2many('course.lecturer', string='Lecturers')
+    lecturer_ids = fields.Many2many('course.lecturer', string='Lecturers')
     course = fields.Many2one('course.course', string='Course')
     participant_list = fields.Many2many('course.participant', string='Participants')
     classroom_list = fields.Many2many('course.classroom', string='Classrooms')
@@ -55,6 +42,16 @@ class Session(models.Model):
     def check_dates(self) :
         if self.end_date < self.starting_date :
             raise ValidationError('End date must be greater than starting date')
+
+    
+class Lecturer(models.Model):
+    _name = 'course.lecturer'
+    _inherits = {'res.users':'lecturer_id'}
+
+    lecturer_id = fields.Many2one('res.users', required=True, ondelete='restrict', auto_join=True,
+    string='Related user', help='User-related data of the lecturer')
+    session_ids = fields.Many2many('course.session', string='Sessions')
+    about = fields.Text('about')
 
 class Classroom(models.Model):
     _name = 'course.classroom'
@@ -84,4 +81,5 @@ class Certificate(models.Model):
     date = fields.Date()
     description = fields.Text()
     participant = fields.Many2one('course.participant', string='participant')
-    course = fields.Many2one('course.course', string='course')    
+    course = fields.Many2one('course.course', string='course')   
+ 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lecturer_course_form" model="ir.ui.view">
+        <field name="name">res.users.course.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+    </record>
+    <record id="view_partner_course_kanban" model="ir.ui.view">
+        <field name="name">res.partner.course.kanban.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+        </field>
+    </record>
+
+    <record id="view_lecturer_kanban" model="ir.ui.view">
+            <field name="name">course.lecturer.kanban</field>
+            <field name="model">course.lecturer</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="login"/>
+                    <field name="lang"/>
+                    <field name="active"/>
+                    <field name="login_date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar" t-att-src="kanban_image('res.users', 'image_medium', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li class="text-success float-right mb4" t-if="record.active.raw_value"><i class="fa fa-circle" role="img" aria-label="Ok" title="Ok"></i></li>
+                                        <li class="text-danger float-right mb4" t-if="!record.active.raw_value"><i class="fa fa-circle" role="img" aria-label="Invalid" title="Invalid"></i></li>
+                                        <li class="mb4">
+                                            <strong><field name="name"/></strong>
+                                        </li>
+                                        <li class="badge badge-pill float-right mb4" t-if="record.lang.raw_value"><field name="lang"/></li>
+                                        <li class="mb4" t-if="record.login.raw_value" title="Login"><i class="fa fa-envelope" role="img" aria-label="Login"/> <field name="login"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+    <record id="lecturer_action_window" model="ir.actions.act_window">
+        <field name="name">Lecturers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a lecturer
+          </p><p>
+            Odoo helps you to easily track all activities related to a lecturers.
+          </p>
+        </field>
+    </record>
+        
+    <menuitem id="menu_course_lecturer" 
+        name="Lecturers"
+        parent="course_menu_root"
+        action="lecturer_action_window"/>
+</odoo>
