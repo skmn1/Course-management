@@ -23,5 +23,5 @@ Cheers Soulimane. <3
 
 PS. the module is compatible with the Odoo 12 version.
 
-<img src="https://github.com/skmn1/Course-management/tree/master/static/description/icon.png" width="250" height="250"> <br/>
+<img src="https://github.com/skmn1/Course-management/blob/master/static/description/icon.png" width="250" height="250"> <br/>
 
